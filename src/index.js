@@ -1,9 +1,9 @@
 /*
 Get React Framework
- -Declare square component which can save state.value
- -Declare board component which makes sqaure components and saves each state
- -Declare game components which makes the layout for the board
-
+ -Declare square component which can save state.value ('X') from button action.
+ -Declare board component which makes sqaure components and saves each state. Also declares the square component
+ -Declare game components which makes the layout for the board and declares the Board component
+ -ReactDOM run main game component
 
 */
 import React from 'react';
@@ -43,10 +43,21 @@ class Board extends React.Component{
 		};
 	}
 	renderSquare(i){
-		return <Square value={this.state.squares[i]} 
-					   onClick={() => this.handleClick(i)} />;
+		return <Square value={ this.state.squares[i] } 
+					   onClick={ () => this.handleClick(i)} />;
 	}
 	
+	handleClick(i){
+		const squares = this.state.squares.slice();
+		square[i] = 'X';
+		this.setState ({ squares: squares});
+	}renderSquare(i){
+		return (
+				<Square value = { this.state.squares[i] }
+					    onClick= { () => this.handleClick(i) } />
+				);
+	}
+
 	render(){
 		const status='Next player: X';
 		
@@ -79,7 +90,7 @@ class Game extends React.Component{
 		return(
 			<div className="game">
 				<div className="game-board">
-					<Board />
+					<Board />{/*INSERT BOARD COMPONENT*/}
 				</div>
 				<div className="game-info">
 					<div>{/*status*/}</div>
@@ -96,7 +107,6 @@ ReactDOM.render(
 				<Game />,
 				document.getElementById('root')
 				);
-
 
 /*class Board extends React.Component {
   constructor(props) {
