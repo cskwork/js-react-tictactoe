@@ -1,3 +1,11 @@
+/*
+Get React Framework
+ -Declare square component which can save state.value
+ -Declare board component which makes sqaure components and saves each state
+ -Declare game components which makes the layout for the board
+
+
+*/
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
@@ -85,12 +93,12 @@ class Game extends React.Component{
 //========================
 
 ReactDOM.render(
-	<Game />,
-	document.getElementById('root')
-	);
+				<Game />,
+				document.getElementById('root')
+				);
 
 
-class Board extends React.Component {
+/*class Board extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -98,10 +106,15 @@ class Board extends React.Component {
     };
   }
 
-  handleClick(i) {    const squares = this.state.squares.slice();    squares[i] = 'X';    this.setState({squares: squares});  }renderSquare(i) {
-    return (
-      <Squarevalue={this.state.squares[i]}onClick={() => this.handleClick(i)}/>);
-  }
+  handleClick(i) {    
+  	const squares = this.state.squares.slice();    
+  					squares[i] = 'X';    
+  					this.setState({squares: squares});  
+  				}renderSquare(i) {
+    						return (
+      						<Square value={ this.state.squares[i] } onClick={() => this.handleClick(i)}/>
+      						);
+  				}
 
   render() {
     const status = 'Next player: X';
@@ -125,4 +138,4 @@ class Board extends React.Component {
         </div>      
 	</div>);
   }
-}
+}*/
